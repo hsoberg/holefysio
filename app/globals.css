@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm off-white neutrals */
+  --color-bone: #F6F1EA;
+  --color-paper: #FBF7F1;
+  --color-ink: #1F1B16;
+  --color-ink-muted: #5A524A;
+  --color-line: #E6DFD3;
+
+  /* Moss green — primary brand */
+  --color-moss-50: #EFF3EC;
+  --color-moss-100: #D7E0CF;
+  --color-moss-200: #B8CDB0;
+  --color-moss-400: #6F8E66;
+  --color-moss-600: #4B6A44;
+  --color-moss-700: #3B5436;
+  --color-moss-900: #1F2C1C;
+
+  /* Terracotta — accent / CTA */
+  --color-terra-100: #F5E3D8;
+  --color-terra-300: #E8B8A0;
+  --color-terra-500: #C97B5A;
+  --color-terra-700: #8E4E34;
+
+  /* Feedback */
+  --color-success: #3B7A57;
+  --color-warning: #B8860B;
+  --color-error: #A0362A;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(31,27,22,.04), 0 8px 24px rgba(31,27,22,.06);
+  --shadow-pop: 0 2px 4px rgba(31,27,22,.06), 0 18px 40px rgba(31,27,22,.10);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(.22,.61,.36,1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 520ms;
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--color-moss-700);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-moss-600);
+  color: var(--color-paper);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-weight: 600;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Scroll-reveal animation */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-soft),
+    transform var(--duration-slow) var(--ease-out-soft);
+}
+[data-reveal][data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal][data-delay="100"] { transition-delay: 100ms; }
+[data-reveal][data-delay="200"] { transition-delay: 200ms; }
+[data-reveal][data-delay="300"] { transition-delay: 300ms; }
+[data-reveal][data-delay="400"] { transition-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* FAQ details animation */
+details::details-content {
+  interpolate-size: allow-keywords;
+  overflow: hidden;
+  height: 0;
+  transition: height var(--duration-base) var(--ease-out-soft);
+}
+details[open]::details-content {
+  height: auto;
+}
+
+/* Underline grow */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out-soft);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Prose */
+.prose h2 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+.prose h3 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose p { margin-bottom: 1rem; }
+.prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose li { margin-bottom: 0.25rem; }
+.prose strong { font-weight: 600; }
+.prose a { color: var(--color-moss-700); text-decoration: underline; }
