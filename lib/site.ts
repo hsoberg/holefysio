@@ -28,8 +28,9 @@ export const site = {
   ],
   hoursDisplay: "Man–tor 08–16, fre 08–15",
   googleMapsEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.0!2d10.2441!3d60.0858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjDCsDA1JzA4LjkiTiAxMMKwMTQnMzguOCJF!5e0!3m2!1sno!2sno!4v1700000000000!5m2!1sno!2sno",
-  googleMapsUrl: "https://maps.google.com/?q=Vik+Torg,+3530+Røyse",
+    "https://maps.google.com/maps?q=Hole+Fysioterapi+og+Helseklinikk,+Vik+Torg,+3530+R%C3%B8yse&hl=no&z=16&output=embed",
+  googleMapsUrl:
+    "https://maps.google.com/?q=Hole+Fysioterapi+og+Helseklinikk,+Vik+Torg,+3530+R%C3%B8yse",
   gbpUrl: "https://www.google.com/maps/place/Hole+Fysioterapi+og+Helseklinikk",
   founded: 2010,
 } as const;
