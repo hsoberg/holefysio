@@ -11,7 +11,7 @@ export function TherapistCard({ therapist }: { therapist: Therapist }) {
           alt={`${therapist.name}, ${therapist.role}`}
           fill
           sizes="(min-width: 768px) 25vw, 50vw"
-          className="object-cover object-top"
+          className="object-cover object-center"
         />
       </div>
       <div className="flex flex-col gap-3 p-6">

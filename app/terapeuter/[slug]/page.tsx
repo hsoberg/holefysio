@@ -68,7 +68,7 @@ export default async function TerapeutPage({
                   alt={`${therapist.name}, ${therapist.role} ved Hole Fysioterapi`}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
